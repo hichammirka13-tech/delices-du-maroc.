@@ -5,385 +5,623 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#103c30">
-  <meta name="description" content="Découvrez Les Délices du Maroc à Liège : cuisine marocaine, couscous, tajines et plats à emporter.">
-  <title>Les Délices du Maroc | Restaurant à Liège</title>
+
+  <title>Les Délices du Maroc | Restaurant marocain à Liège</title>
+  <meta name="description" content="Découvrez Les Délices du Maroc à Liège : cuisine marocaine, couscous, tajines et spécialités à savourer sur place ou à emporter.">
+  <meta property="og:title" content="Les Délices du Maroc — Liège">
+  <meta property="og:description" content="Un voyage de saveurs marocaines au cœur de Liège.">
+  <meta property="og:type" content="website">
+
   <style>
     :root {
       --green: #103c30;
-      --green-light: #1b5542;
+      --green-dark: #09291f;
+      --green-light: #245a43;
       --gold: #d5b66c;
-      --cream: #f8f3e9;
-      --ink: #252b26;
+      --cream: #faf6ed;
+      --white: #fffdf8;
+      --ink: #292d28;
       --muted: #6c716b;
+      --border: #e9dfca;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
       color: var(--ink);
+      font-family: var(--sans);
       line-height: 1.7;
-      background: #fffdf8;
     }
+
+    img { display: block; max-width: 100%; }
+
     a { color: inherit; }
-    .container { width: min(1100px, 90%); margin: auto; }
+
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .topbar {
+      background: var(--green-dark);
+      color: #f4ead5;
+      text-align: center;
+      padding: 7px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       background: var(--green);
-      color: white;
-      border-bottom: 1px solid #b99b54;
+      border-bottom: 1px solid #bda25f;
     }
-    nav {
+
+    .navigation {
+      min-height: 82px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
+      gap: 24px;
     }
+
     .brand {
-      color: var(--gold);
-      font-family: Georgia, serif;
-      font-size: 20px;
-      font-weight: bold;
       text-decoration: none;
-      line-height: 1.3;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: bold;
     }
+
     .brand small {
       display: block;
-      color: #f7f0df;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
+      color: #fff7e8;
+      font: 10px var(--sans);
       letter-spacing: 3px;
       margin-top: 5px;
     }
-    .navlinks {
+
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      align-items: center;
+      gap: 22px;
     }
-    .navlinks a {
-      color: white;
-      font-size: 14px;
+
+    .nav-links a {
+      color: #fffdf8;
+      font-size: 13px;
       text-decoration: none;
     }
-    .navlinks a:hover { color: var(--gold); }
+
+    .nav-links a:hover { color: var(--gold); }
 
     .hero {
-      min-height: 570px;
+      min-height: 610px;
       display: grid;
       place-items: center;
       text-align: center;
       color: white;
+      padding: 85px 20px;
       background:
-        linear-gradient(120deg, rgba(9,36,28,.94), rgba(16,60,48,.76)),
+        linear-gradient(110deg, rgba(5, 31, 23, .88),
+        rgba(16, 60, 48, .63)),
         url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-      padding: 80px 20px;
-    }
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
-    h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 1.1;
-      font-weight: normal;
-      max-width: 850px;
-      margin: 22px auto;
-    }
-    .hero p {
-      max-width: 650px;
-      margin: 0 auto 30px;
-      color: #f4eee2;
-      font-size: 18px;
-    }
-    .button {
-      display: inline-block;
-      padding: 13px 22px;
-      background: var(--gold);
-      color: #18382d;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid var(--gold);
-      border-radius: 3px;
-      transition: .2s;
-    }
-    .button:hover { background: #f0d99b; }
-    .button-outline {
-      background: transparent;
-      color: white;
-      margin-left: 8px;
+        center 52% / cover;
     }
 
-    section { padding: 76px 0; }
-    .section-title {
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d9bc78;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); }
+
+    h1 {
+      font-weight: normal;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1.08;
+      margin: 22px 0;
+    }
+
+    .hero p {
+      max-width: 630px;
+      margin: 0 auto 30px;
+      color: #f6efe3;
+      font-size: 17px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 47px;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      background: var(--gold);
+      color: var(--green-dark);
+      text-decoration: none;
       text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      transition: background .2s, transform .2s;
+    }
+
+    .button:hover {
+      background: #ead49a;
+      transform: translateY(-1px);
+    }
+
+    .button-outline {
+      color: white;
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      background: rgba(255,255,255,.12);
+      color: white;
+    }
+
+    section { padding: 82px 0; }
+
+    .section-heading {
       max-width: 720px;
-      margin: 0 auto 38px;
-    }
-    .section-title h2 {
-      color: var(--green);
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      margin: 12px 0;
-    }
-    .section-title p { color: var(--muted); }
-    .intro {
-      background: var(--cream);
+      margin: 0 auto 42px;
       text-align: center;
     }
+
+    .section-heading h2 {
+      color: var(--green);
+      font-size: clamp(31px, 4vw, 45px);
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 13px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .intro { background: var(--cream); }
+
     .intro-copy {
       max-width: 780px;
       margin: auto;
+      text-align: center;
       font-size: 17px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 23px;
     }
+
     .card {
+      border: 1px solid var(--border);
       background: white;
-      border: 1px solid #e8e0d0;
-      padding: 30px 24px;
-      text-align: center;
       border-radius: 4px;
+      overflow: hidden;
     }
-    .card .symbol {
-      font-size: 34px;
-      color: #ad873d;
+
+    .card img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      background: var(--cream);
     }
+
+    .card-content { padding: 23px; }
+
     .card h3 {
+      margin: 0 0 10px;
       font-size: 25px;
+      font-weight: normal;
       color: var(--green);
-      margin: 12px 0;
     }
-    .card p { color: var(--muted); margin-bottom: 0; }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
 
     .menu-section {
       background: var(--green);
       color: white;
     }
-    .menu-section .section-title h2 { color: white; }
-    .menu-section .section-title p { color: #e0e6dc; }
-    .menu-note {
-      max-width: 720px;
-      margin: auto;
-      text-align: center;
-      padding: 28px;
-      border: 1px solid #8e7949;
-      background: rgba(255,255,255,.04);
-    }
-    .menu-note h3 { color: var(--gold); font-size: 27px; }
 
-    .visit-grid {
+    .menu-section .section-heading h2 { color: white; }
+    .menu-section .section-heading p { color: #e2e9df; }
+
+    .menu-panel {
+      max-width: 760px;
+      margin: auto;
+      padding: 35px;
+      text-align: center;
+      border: 1px solid #ad9254;
+      background: rgba(255,255,255,.035);
+    }
+
+    .menu-panel h3 {
+      color: var(--gold);
+      font-size: 28px;
+      font-weight: normal;
+      margin-top: 0;
+    }
+
+    .menu-panel p { color: #eee8da; }
+
+    .note {
+      font-size: 12px !important;
+      color: #d7dfd5 !important;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .service-grid img {
+      width: 100%;
+      min-height: 300px;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .service-grid h2 {
+      color: var(--green);
+      font-weight: normal;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .service-grid p { color: var(--muted); }
+
+    .contact-section { background: var(--cream); }
+
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 35px;
       align-items: start;
     }
-    .visit-grid h2 { color: var(--green); font-size: 34px; }
-    .address {
-      background: var(--cream);
-      border-left: 4px solid var(--gold);
-      padding: 24px;
+
+    .contact-grid h2 {
+      font-size: 37px;
+      color: var(--green);
+      font-weight: normal;
+      line-height: 1.2;
     }
-    .address a { color: var(--green); font-weight: bold; }
-    .small { color: var(--muted); font-size: 13px; }
+
+    .contact-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+    }
+
+    .contact-card h3 {
+      font-size: 26px;
+      color: var(--green);
+      margin-top: 0;
+    }
+
+    .contact-card a:not(.button) {
+      color: var(--green);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
     footer {
-      background: #092a21;
-      color: #eee7d8;
-      padding: 30px 0;
+      background: var(--green-dark);
+      color: #f3ecdf;
       text-align: center;
+      padding: 35px 15px;
       font-size: 13px;
     }
-    footer a { color: var(--gold); }
+
     .footer-brand {
+      font-family: var(--serif);
       color: var(--gold);
-      font-family: Georgia, serif;
-      font-size: 20px;
+      font-size: 22px;
     }
 
-    @media (max-width: 720px) {
-      nav { align-items: flex-start; flex-direction: column; }
-      .navlinks { gap: 12px 18px; }
-      .hero { min-height: 510px; }
-      .hero p { font-size: 16px; }
-      .button-outline { margin: 12px 0 0; }
-      .cards, .visit-grid { grid-template-columns: 1fr; }
-      section { padding: 55px 0; }
+    footer p { margin: 7px 0; }
+
+    footer a { color: var(--gold); }
+
+    .disclaimer {
+      max-width: 700px;
+      margin: 15px auto 0;
+      color: #d3d9d1;
+      font-size: 11px;
+    }
+
+    @media (max-width: 760px) {
+      .navigation {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links { gap: 12px 18px; }
+      .nav-links a { font-size: 12px; }
+      .hero { min-height: 540px; padding: 65px 18px; }
+      .cards, .service-grid, .contact-grid { grid-template-columns: 1fr; }
+      section { padding: 60px 0; }
+      .card img { height: 240px; }
+      .menu-panel { padding: 25px 18px; }
+      .service-grid img { min-height: 230px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="topbar">
+    CUISINE MAROCAINE · LIÈGE · SUR PLACE ET À EMPORTER
+  </div>
+
   <header>
-    <nav class="container" aria-label="Navigation principale">
+    <nav class="navigation container" aria-label="Navigation principale">
       <a class="brand" href="#accueil">
         LES DÉLICES DU MAROC
         <small>CUISINE MAROCAINE · LIÈGE</small>
       </a>
-      <div class="navlinks">
-        <a href="#histoire">Notre esprit</a>
+
+      <div class="nav-links">
+        <a href="#histoire">Notre histoire</a>
         <a href="#specialites">Spécialités</a>
-        <a href="#carte">La carte</a>
-        <a href="#contact">Nous trouver</a>
+        <a href="#menu">Notre menu</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="accueil">
-      <div>
-        <div class="eyebrow">Une invitation au voyage</div>
+      <div class="hero-content">
+        <div class="eyebrow">L'art de la cuisine marocaine</div>
         <h1>Un voyage de saveurs, au cœur de Liège.</h1>
         <p>
-          Découvrez l'univers de la cuisine marocaine, ses épices
-          parfumées, ses recettes généreuses et le plaisir du partage.
+          Découvrez une cuisine inspirée des traditions marocaines,
+          des saveurs parfumées et le plaisir de partager un bon repas.
         </p>
-        <a class="button" href="#specialites">Découvrir notre cuisine</a>
-        <a class="button button-outline"
-           href="https://www.google.com/maps/search/?api=1&query=Boulevard+de+la+Constitution+29%2C+4020+Li%C3%A8ge"
-           target="_blank" rel="noopener">
-          Nous trouver
-        </a>
+        <div class="actions">
+          <a class="button" href="#menu">Découvrir notre menu</a>
+          <a class="button button-outline" href="#contact">Nous trouver</a>
+        </div>
       </div>
     </section>
 
     <section class="intro" id="histoire">
       <div class="container">
-        <div class="section-title">
+        <div class="section-heading">
           <div class="eyebrow">Bienvenue chez nous</div>
-          <h2>La tradition marocaine, l'art de recevoir.</h2>
+          <h2>La tradition marocaine, le plaisir du partage.</h2>
         </div>
         <p class="intro-copy">
-          Les Délices du Maroc vous invitent à découvrir une cuisine
-          inspirée par les saveurs marocaines et la convivialité.
-          Pour un repas sur place ou un plat à emporter, retrouvez
-          le plaisir d'un moment gourmand à Liège.
+          Les Délices du Maroc vous invitent à découvrir les saveurs
+          de la cuisine marocaine à Liège. Pour un repas sur place
+          ou des plats à emporter, retrouvez un univers gourmand
+          inspiré par la richesse de la gastronomie marocaine.
         </p>
       </div>
     </section>
 
     <section id="specialites">
       <div class="container">
-        <div class="section-title">
-          <div class="eyebrow">Nos saveurs</div>
-          <h2>Un univers riche en gourmandise.</h2>
+        <div class="section-heading">
+          <div class="eyebrow">Nos spécialités</div>
+          <h2>Le goût du Maroc dans votre assiette.</h2>
           <p>
-            Découvrez les spécialités proposées par notre restaurant.
-            La carte complète sera bientôt disponible sur ce site.
+            Découvrez les catégories de spécialités du restaurant.
+            Les plats exacts seront présentés avec le menu officiel.
           </p>
         </div>
+
         <div class="cards">
           <article class="card">
-            <div class="symbol" aria-hidden="true">✧</div>
-            <h3>Couscous</h3>
-            <p>
-              Retrouvez les recettes de couscous disponibles
-              à la carte du restaurant.
-            </p>
+            <img
+              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=850&q=80"
+              alt="Assiette colorée de légumes et ingrédients frais"
+              loading="lazy">
+            <div class="card-content">
+              <h3>Couscous</h3>
+              <p>
+                Découvrez les recettes de couscous proposées
+                à la carte du restaurant.
+              </p>
+            </div>
           </article>
+
           <article class="card">
-            <div class="symbol" aria-hidden="true">❋</div>
-            <h3>Tajines</h3>
-            <p>
-              Découvrez les tajines et leurs associations
-              de saveurs parfumées, selon la carte.
-            </p>
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=850&q=80"
+              alt="Présentation gourmande d'un plat à partager"
+              loading="lazy">
+            <div class="card-content">
+              <h3>Tajines</h3>
+              <p>
+                Retrouvez les tajines et les spécialités
+                disponibles selon la carte.
+              </p>
+            </div>
           </article>
+
           <article class="card">
-            <div class="symbol" aria-hidden="true">◇</div>
-            <h3>Spécialités marocaines</h3>
-            <p>
-              Explorez les autres plats et spécialités
-              proposés par notre équipe.
-            </p>
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=850&q=80"
+              alt="Plat servi dans une ambiance culinaire chaleureuse"
+              loading="lazy">
+            <div class="card-content">
+              <h3>Saveurs marocaines</h3>
+              <p>
+                Explorez les autres spécialités et les recettes
+                réellement proposées par notre équipe.
+              </p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="menu-section" id="carte">
+    <section class="menu-section" id="menu">
       <div class="container">
-        <div class="section-title">
+        <div class="section-heading">
           <div class="eyebrow">Notre carte</div>
-          <h2>Vos envies, nos spécialités.</h2>
+          <h2>Une envie de cuisine marocaine ?</h2>
           <p>
-            La carte détaillée sera ajoutée dès réception du menu
-            officiel et des prix du restaurant.
+            Retrouvez les informations du restaurant et découvrez
+            notre carte complète sur place.
           </p>
         </div>
-        <div class="menu-note">
-          <h3>Une envie de cuisine marocaine ?</h3>
+
+        <div class="menu-panel">
+          <h3>Nos plats et nos prix</h3>
           <p>
-            Consultez notre fiche en ligne pour retrouver
-            les informations actuellement disponibles.
+            Le menu détaillé sera publié ici dès que la carte officielle
+            aura été intégrée.
           </p>
-          <a class="button"
-             href="https://www.resto.be/restaurant/liege/4020-liege/163483-les-delices-du-maroc/"
-             target="_blank" rel="noopener">
-            Voir notre fiche sur Resto.be
+          <p class="note">
+            Les plats, les prix et les disponibilités seront confirmés
+            par le restaurant.
+          </p>
+          <a
+            class="button"
+            href="https://www.resto.be/restaurant/liege/4020-liege/163483-les-delices-du-maroc/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Consulter notre fiche restaurant
           </a>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container visit-grid">
+    <section id="services">
+      <div class="container service-grid">
         <div>
-          <div class="eyebrow">Rendez-nous visite</div>
+          <div class="eyebrow">À votre façon</div>
+          <h2>Un bon repas, sur place ou à emporter.</h2>
+          <p>
+            Envie de partager un repas au restaurant ou de savourer
+            nos spécialités chez vous ? Découvrez les possibilités
+            proposées par Les Délices du Maroc.
+          </p>
+          <a class="button" href="#contact">Informations pratiques</a>
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=85"
+          alt="Présentation d'un repas dans une ambiance chaleureuse"
+          loading="lazy">
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Nous rendre visite</div>
           <h2>Retrouvez-nous à Liège.</h2>
           <p>
-            Nous vous accueillons pour découvrir notre cuisine
-            marocaine, avec la possibilité de manger sur place
-            ou de choisir des plats à emporter.
-          </p>
-          <p class="small">
-            Consultez les horaires et les modalités de service
-            sur notre fiche en ligne avant votre visite.
+            Venez découvrir Les Délices du Maroc à Outremeuse.
+            Consultez les informations pratiques avant votre visite.
           </p>
         </div>
-        <div class="address">
+
+        <div class="contact-card">
           <h3>Les Délices du Maroc</h3>
           <p>
             Boulevard de la Constitution 29<br>
             4020 Liège, Belgique
           </p>
           <p><strong>Téléphone :</strong> à compléter</p>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Boulevard+de+la+Constitution+29%2C+4020+Li%C3%A8ge"
-               target="_blank" rel="noopener">
-              Ouvrir l'itinéraire sur Google Maps →
+          <p><strong>Horaires :</strong> consultez notre fiche en ligne</p>
+
+          <div class="contact-actions">
+            <a
+              class="button"
+              href="https://www.google.com/maps/search/?api=1&query=Boulevard+de+la+Constitution+29%2C+4020+Li%C3%A8ge%2C+Belgique"
+              target="_blank"
+              rel="noopener noreferrer">
+              Itinéraire Google Maps
             </a>
-          </p>
-          <p>
-            <a href="https://www.resto.be/restaurant/liege/4020-liege/163483-les-delices-du-maroc/"
-               target="_blank" rel="noopener">
-              Consulter notre fiche restaurant →
+            <a
+              class="button"
+              href="https://www.resto.be/restaurant/liege/4020-liege/163483-les-delices-du-maroc/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Notre fiche Resto.be
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <div class="footer-brand">Les Délices du Maroc</div>
-      <p>Cuisine marocaine · Liège</p>
-      <p>
-        © <span id="year"></span> Les Délices du Maroc.
-        Tous droits réservés.
-      </p>
-    </div>
+    <div class="footer-brand">Les Délices du Maroc</div>
+    <p>Cuisine marocaine · Liège</p>
+    <p>Boulevard de la Constitution 29, 4020 Liège</p>
+    <p>
+      <a href="#accueil">Retour en haut ↑</a>
+    </p>
+    <p>© <span id="year"></span> Les Délices du Maroc.</p>
+    <p class="disclaimer">
+      Les informations pratiques, les horaires, le menu et les photos
+      sont à vérifier et à valider par le restaurant avant publication.
+    </p>
   </footer>
+
   <script>
     document.getElementById("year").textContent =
       new Date().getFullYear();
